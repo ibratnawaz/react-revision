@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Revision of react 18",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel src/index.html",
     "build": "parcel build index.html"
   },
   "repository": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2"
   }
 }
