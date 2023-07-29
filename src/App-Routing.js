@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import About from '../pages/About';
-import Contact from '../pages/Contact';
-import Home from '../pages/Home';
-import App from '../App';
-import InvalidPage from './404-page';
+import App from './App';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import InvalidPage from './pages/404-page';
+import RestaurantMenu from './pages/RestaurantMenu';
 
 const RoutingComponent = () => {
 	const router = createBrowserRouter([
@@ -12,16 +13,20 @@ const RoutingComponent = () => {
 			element: <App />,
 			children: [
 				{
-					path: '/',
-					element: <Home />
-				},
-				{
 					path: '/about',
 					element: <About />
 				},
 				{
 					path: 'contact/',
 					element: <Contact />
+				},
+				{
+					path: '/restaurants/:resId',
+					element: <RestaurantMenu />
+				},
+				{
+					path: '',
+					element: <Home />
 				}
 			],
 			errorElement: <InvalidPage />

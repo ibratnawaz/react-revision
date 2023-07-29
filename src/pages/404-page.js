@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as notFound from './illustration.svg';
+import * as notFound from '../assets/images/illustration.svg';
 
 const InvalidPage = () => {
 	return (
