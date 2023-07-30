@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { APP_CONSTANTS } from '../constants/app-constant';
+import UserContext from '../context/userContext';
 
 const RestaurantCard = (props) => {
 	const { resData } = props;
-
+	const { loggedInUser } = useContext(UserContext);
+	console.log('>>> card called');
 	const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
 		resData;
 
@@ -19,6 +21,7 @@ const RestaurantCard = (props) => {
 			<h4>{avgRating} ★</h4>
 			<h4>{costForTwo}</h4>
 			<h4>{sla?.deliveryTime} minutes</h4>
+			<h5>{loggedInUser}</h5>
 		</div>
 	);
 };

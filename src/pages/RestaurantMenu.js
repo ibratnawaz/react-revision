@@ -31,9 +31,16 @@ const RestaurantMenu = () => {
 				<h2 className='mb-2 text-lg font-semibold text-left'>MENU:</h2>
 				<ul className='space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 text-left'>
 					{itemCards?.map((item) => (
-						<li key={item.card.info.id}>
-							{item.card.info.name} - ₹{item.card.info.price / 100}
-						</li>
+						<div className='flex gap-4'>
+							<li key={item.card.info.id}>
+								{item.card.info.name} - ₹{item.card.info.price / 100}
+							</li>
+							<button
+								title='Add to cart'
+								className='text-sm border border-blue-200'>
+								➕
+							</button>
+						</div>
 					))}
 				</ul>
 			</div>

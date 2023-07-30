@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { APP_CONSTANTS } from '../constants/app-constant';
+import UserContext from '../context/userContext';
+import CartContext from '../context/cartContext';
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const { loggedInUser } = useContext(UserContext);
+	const { items } = useContext(CartContext);
 	const { LOGO_URL, LOGIN, LOGOUT } = APP_CONSTANTS;
 
 	return (
@@ -22,13 +26,22 @@ const Header = () => {
 					<li className='px-4'>
 						<Link to='/contact'>Contact Us</Link>
 					</li>
+					<li className='pr-4'>
+						<Link to='/cart'>
+							🛒
+							<sup className='px-1 text-sm border rounded border-black bg-black text-white'>
+								{items}
+							</sup>
+						</Link>
+					</li>
 					<button
 						className='login'
 						onClick={() => {
 							setIsLoggedIn((loggedIn) => !loggedIn);
 						}}>
-						{isLoggedIn ? LOGIN : LOGOUT}
+						{isLoggedIn ? LOGOUT : LOGIN}
 					</button>
+					{isLoggedIn && <li className='px-4'>{loggedInUser}</li>}
 				</ul>
 			</div>
 		</div>
